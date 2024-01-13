@@ -65,7 +65,7 @@ class MessageBubble extends StatelessWidget {
           child: Row(
             // The side of the chat screen the message should show at.
             mainAxisAlignment:
-                isMe ? MainAxisAlignment.center : MainAxisAlignment.start,
+                isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
             children: [
               Column(
                 crossAxisAlignment:
