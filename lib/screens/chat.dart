@@ -20,6 +20,8 @@ class _ChatScreenState extends State<ChatScreen> {
 
     final token = await fcm.getToken();
     print(token);
+    
+    fcm.subscribeToTopic('chat');
   }
 
   @override
