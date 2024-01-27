@@ -22,5 +22,37 @@
     "eslint-config-google": "^0.14.0",
     "firebase-functions-test": "^3.1.0"
   },
-  "private": true
+  "private": true,
+  
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Functions",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/firebase-tools/lib/bin/firebase",
+      "args": ["emulators:start", "--only", "functions"],
+      "runtimeArgs": ["--inspect-brk"],
+      "outFiles": ["${workspaceFolder}/functions/**/*.js"],
+      "sourceMaps": true,
+      "smartStep": true,
+      "protocol": "inspector",
+      "stopOnEntry": false,
+      "restart": true,
+      "timeout": 10000,
+      "env": {
+        "FIREBASE_CONFIG": "${workspaceFolder}/firebase.json",
+        "NODE_ENV": "development"
+      },
+      "preLaunchTask": "npm: preLaunch"
+    }
+  ],
+  "tasks": {
+    "npm: preLaunch": {
+      "script": "npm",
+      "type": "npm",
+      "script": "npm: build"
+    }
+  }
+
 }
